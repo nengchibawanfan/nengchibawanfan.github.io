@@ -299,34 +299,17 @@
 
       
         
-          
-            <h4 id="shadowsocks教程"><a href="#shadowsocks教程" class="headerlink" title="shadowsocks教程"></a>shadowsocks教程</h4><h1 id="一步到Wiki"><a href="#一步到Wiki" class="headerlink" title="一步到Wiki"></a>一步到Wiki</h1><blockquote>
-<p><a href="https://github.com/shadowsocks/shadowsocks/wiki" target="_blank" rel="noopener">https://github.com/shadowsocks/shadowsocks/wiki</a></p>
-<p><a href="https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" target="_blank" rel="noopener">https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E</a></p>
-</blockquote>
-<ul>
-<li>登陆github</li>
-<li>搜索shadowsocks</li>
-</ul>
-<p><img src="/image/shadowsocks/1.jpg" alt="image-20181209220225466.png"></p>
-<p><img src="/image/shadowsocks/2.jpg" alt="image-20181209220314079.png"></p>
-<ul>
-<li>安装见Wiki</li>
-</ul>
-<p><img src="/image/shadowsocks/3.jpg" alt="image-20181209220434917.png"></p>
-<ul>
-<li>安装好了以后</li>
-</ul>
-<p><img src="/image/shadowsocks/4.jpg" alt="image-20181209220508651.png"></p>
-<ul>
-<li>设置服务器</li>
-</ul>
-<p><img src="/image/shadowsocks/5.jpg" alt="image-20181209220545095.png"><br>打开 完成！</p>
-
-          
+          <h4 id="shadowsocks教程"><a href="#shadowsocks教程" class="headerlink" title="shadowsocks教程"></a>shadowsocks教程</h4><p>这篇文章主要是说了怎么安装翻墙软件和连接翻墙服务器，以后会更新如何搭建自己的翻墙服务器<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/01/优雅地翻墙/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -440,110 +423,15 @@
 
       
         
-          
-            <h1 id="傻瓜式搭建个人博客"><a href="#傻瓜式搭建个人博客" class="headerlink" title="傻瓜式搭建个人博客"></a>傻瓜式搭建个人博客</h1><p>因为上传到简书的部分言（造）论（福）反（网）动（友）的文章被封了，所以决定自己搭建一个个人博客，你还来封我呀嘻嘻。话不多说、车门焊死、准备发车！</p>
+          <h1 id="傻瓜式搭建个人博客"><a href="#傻瓜式搭建个人博客" class="headerlink" title="傻瓜式搭建个人博客"></a>傻瓜式搭建个人博客</h1><p>因为上传到简书的部分言（造）论（福）反（网）动（友）的文章被封了，所以决定自己搭建一个个人博客，你还来封我呀嘻嘻。话不多说、车门焊死、准备发车！</p>
 <p>哦对，先上几个图激励一下自己才行，搭建好了以后是这样的，这是几个主题可以看一下</p>
-<blockquote>
-<p><a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
-<p><a href="http://niexiaotao.cn/" target="_blank" rel="noopener">http://niexiaotao.cn/</a></p>
-<p><a href="https://yiluyanxia.site/" target="_blank" rel="noopener">https://yiluyanxia.site/</a></p>
-</blockquote>
-<p><img src="/image/setUpBlog/theme1.jpg" alt=""></p>
-<p><img src="/image/setUpBlog/theme2.jpg" alt=""></p>
-<p>是不是还不错，接下来就开始。。。盘它！</p>
-<p>我的系统是macOS，但是Windows的也没什么差别</p>
-<h3 id="1、在GitHub创建仓库"><a href="#1、在GitHub创建仓库" class="headerlink" title="1、在GitHub创建仓库"></a>1、在GitHub创建仓库</h3><p>​    首先要在GitHub上创建一个存放你的代码的仓库，这个仓库名，就是你的域名了，所以 起名字的时候可能要慎重一点，毕竟域名叫aaa好像一点排面都没有==</p>
-<ul>
-<li><p><strong>创建GitHub账户</strong></p>
-<p>创建账户就很简单的，按照他的提示一步一步来就好了</p>
-</li>
-<li><p><strong>配置自己的私钥加入到GitHub</strong></p>
-<p><strong>Step 1</strong>    检查有没有本机的SSH密钥</p>
-<p>检查~/.ssh看看是否有名为<code>id_rsa.pub</code> 和<code>id_dsa.pub的</code>2个文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd</span><br><span class="line">$ cd ~/.ssh</span><br><span class="line">$ ls</span><br></pre></td></tr></table></figure>
-<p>如果没有 step2、如果有  step3</p>
-<p><strong>Step 2</strong>    创建一个新的SSH密钥</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cd</span><br><span class="line">$ ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br><span class="line"># 一路回车不输入密码，当然密码看你个人想不想设置拉</span><br><span class="line">检查是不是生成了</span><br><span class="line">$ cd ~/.ssh</span><br><span class="line">$ ls</span><br></pre></td></tr></table></figure>
-<p><strong>Step3</strong>    添加公钥到GitHub</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat ~/.ssh/id_rsa.pub</span><br><span class="line"></span><br><span class="line">ssh-rsa AAAAB3NzaC1ysevsevsc2EAAAADAQABAAAevBAQDKdvdevssfckjevkevekvekyuviosevsscevuo sevcsevsevsevevwovjsvbsihvpsebvdvGj5g8sKuhCYu9AvUb4FTDQauna6hGKw7qK8r1WKKHUmzIXltc8cosDcp2dfaYA3DYNY4M/aNR5byt6ZaKsJHcMl2btJ9yLSjNGtd6DJZwefQig0C6lMo4EmQStbVSTRWuJkV2p1MouwPJWGIwGn4kLRZO8iParPNWMQg+RqOzLVDzypv6y+m05yfRdHsgWIDJIPZ0WLmNG7 nensvrvrvsn@163.com</span><br></pre></td></tr></table></figure>
-<p>右上角头像下拉三角框 –&gt; settings –&gt; SSH and GPG keys –&gt; New SSH key  </p>
-<p>然后你复制上面的公钥内容，粘贴进“Key”文本域内。 title域，自己随便起个名字。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com		# 验证这个key是不是好用</span><br><span class="line">Hi 你的GitHub名称! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>创建仓库</strong></p>
-<p>repostories –&gt; new    </p>
-<p>Repository name   这个就关系到自己的域名了，写好之后 点create repostory就可以了</p>
-<p>点创建以后会出现。 </p>
-<blockquote>
-<p><a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:XXXXX/aaa.git</p>
-<p>等下会用到</p>
-</blockquote>
-</li>
-</ul>
-<p>创建仓库完成！</p>
-<h3 id="2、安装Hexo"><a href="#2、安装Hexo" class="headerlink" title="2、安装Hexo"></a>2、安装Hexo</h3><p>​    <a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">Hexo</a> 是一个快速、简洁且高效的博客框架。Hexo 使用 <a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="noopener">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<ul>
-<li><p><strong>安装前提</strong></p>
-<p>安装 Hexo 相当简单。然而在安装前，您必须检查电脑中是否已安装下列应用程序</p>
-<p><a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a></p>
-<p><a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a></p>
-<p>如果没有安装 emmmm</p>
-<p>安装Git</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install git   // 安装Git</span><br></pre></td></tr></table></figure>
-<p>安装Nodejs</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ brew install nvm</span><br><span class="line">$ mkdir ~/.nvm</span><br><span class="line">$ export NVM_DIR=~/.nvm</span><br><span class="line">$ . $(brew --prefix nvm)/nvm.sh</span><br><span class="line">$ nvm install 7</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>安装Hexo</strong></p>
-<p>如果您的电脑中已经安装上述必备程序，接下来只需要使用 npm 即可完成 Hexo 的安装.</p>
-<p>以上安装都要安装完成后菜能安装Hexo哦</p>
-<p>官方文档没有sudo。但是尝试后。会出现各种问题。。。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>至此工具安装完成！可以开始写博客上传了！</p>
-<h3 id="3、写博客发布"><a href="#3、写博客发布" class="headerlink" title="3、写博客发布"></a>3、写博客发布</h3><p>​    用Hexo初始化自己的博客，更改自定义的配置，设置自己的主题，写一篇博客练练手，推送到自己的Github</p>
-<ul>
-<li><p><strong>Hexo初始化博客</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir MyBlog		# 创建一个空文件夹</span><br><span class="line">$ cd MyBlog</span><br><span class="line">$ hexo init XXXblog	# Hexo初始化一个文件夹	  最好起一个不会撞的名字吧  </span><br><span class="line">$ cd XXXblog</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>安装主题</strong></p>
-<p>Hexo有<a href="https://link.jianshu.com/?t=https://hexo.io/themes/" target="_blank" rel="noopener">很多主题</a>可以选择。</p>
-<p>主题可以自己去Hexo选择，将next替换一下就可以</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/iissnan/hexo-theme-next themes/next		# 安装一个主题</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置</p>
-<p>在IDE中把这个项目打开，修改配置文件</p>
-<p>username.github.io/<code>_config.yml</code>修改配置。<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">更多配置</a></p>
-<p>主要的几个：</p>
-<p>title：博客名称</p>
-<p>language：语言 zh-Hans</p>
-<p><strong>最重要的！</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: emmm 创建仓库以后蹦出来的那一个，没错 粘过来</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>本地测试</strong></p>
-<p>他本来就有一个HelloWorld.md。 我们可以先不写 借用他这个</p>
-<p>哦对 写文章是在source/_post下写</p>
-<p>启动测试服务，4000端口     在浏览器中输入127.0.0.1：4000就可以看到了</p>
-<blockquote>
-<p>$ hexo s</p>
-</blockquote>
-</li>
-<li><p><strong>安装<a href="https://link.jianshu.com/?t=https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">hexo-deployer-git</a>自动部署发布工具</strong></p>
-<blockquote>
-<p>$ npm install hexo-deployer-git –save</p>
-</blockquote>
-</li>
-<li><p><strong>推送到GitHub</strong></p>
-<blockquote>
-<p>$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</p>
-</blockquote>
-<p>每次写完博客后，输入这个命令，就自动生成了静态网页并上传到GitHub了</p>
-</li>
-</ul>
-<p>最后 在浏览器里输入网址 这个网址在_config.yaml自己配置， 就能够访问了</p>
-<p>emmmmm刚接触只搭了一个最简单的网站，关于Hexo还有许多功能，比如评论啊之类的，欢迎大家积极研究  可以为所欲为了！</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/01/setUpBlog/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
