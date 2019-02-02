@@ -79,14 +79,17 @@
 
 
 
+<meta name="description" content="Git的相关操作 拉取项目1234git clone git@git.n.xxx.com:xxx/xxx.gitgit fetch origin dev    命令来把远程dev分支拉到本地git checkout -b dev origin/dev   在本地创建分支dev并切换到该分支git pull origin dev 就可以把远程dev分支上的内容都拉取到本地了    版本回退 强行覆盖">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git的相关操作">
 <meta property="og:url" content="http://yoursite.com/2019/02/02/Git的相关操作/index.html">
 <meta property="og:site_name" content="能吃八碗饭">
+<meta property="og:description" content="Git的相关操作 拉取项目1234git clone git@git.n.xxx.com:xxx/xxx.gitgit fetch origin dev    命令来把远程dev分支拉到本地git checkout -b dev origin/dev   在本地创建分支dev并切换到该分支git pull origin dev 就可以把远程dev分支上的内容都拉取到本地了    版本回退 强行覆盖">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-02T09:35:28.134Z">
+<meta property="og:updated_time" content="2019-02-02T15:04:07.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git的相关操作">
+<meta name="twitter:description" content="Git的相关操作 拉取项目1234git clone git@git.n.xxx.com:xxx/xxx.gitgit fetch origin dev    命令来把远程dev分支拉到本地git checkout -b dev origin/dev   在本地创建分支dev并切换到该分支git pull origin dev 就可以把远程dev分支上的内容都拉取到本地了    版本回退 强行覆盖">
 
 
 
@@ -296,7 +299,23 @@
       
 
       
-        
+        <h1 id="Git的相关操作"><a href="#Git的相关操作" class="headerlink" title="Git的相关操作"></a>Git的相关操作</h1><ul>
+<li><h3 id="拉取项目"><a href="#拉取项目" class="headerlink" title="拉取项目"></a>拉取项目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone git@git.n.xxx.com:xxx/xxx.git</span><br><span class="line">git fetch origin dev    命令来把远程dev分支拉到本地</span><br><span class="line">git checkout -b dev origin/dev   在本地创建分支dev并切换到该分支</span><br><span class="line">git pull origin dev 就可以把远程dev分支上的内容都拉取到本地了</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><ul>
+<li>强行覆盖</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用远程服务器的版本覆盖</span><br><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/dev</span><br><span class="line"></span><br><span class="line">指定版本进行覆盖</span><br><span class="line">git reset --hard 版本号</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="git怎样删除未监视的文件untracked-files"><a href="#git怎样删除未监视的文件untracked-files" class="headerlink" title="git怎样删除未监视的文件untracked files"></a>git怎样删除未监视的文件untracked files</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">用 git clean</span><br><span class="line"># 删除 untracked files</span><br><span class="line">git clean -f</span><br><span class="line"># 连 untracked 的目录也一起删掉</span><br><span class="line">git clean -fd</span><br><span class="line"># 连 gitignore 的untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）</span><br><span class="line">git clean -xfd</span><br><span class="line"># 在用上述 git clean 前，墙裂建议加上 -n 参数来先看看会删掉哪些文件，防止重要文件被误删</span><br><span class="line">git clean -nxfd</span><br><span class="line">git clean -nf</span><br><span class="line">git clean -nfd</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><h3 id="在GitHub新建项目后，根据GitHub提示选择将已经存在的项目推到远端"><a href="#在GitHub新建项目后，根据GitHub提示选择将已经存在的项目推到远端" class="headerlink" title="在GitHub新建项目后，根据GitHub提示选择将已经存在的项目推到远端"></a>在GitHub新建项目后，根据GitHub提示选择将已经存在的项目推到远端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:********（github帐号名）/*******（项目名）.git </span><br><span class="line">在GitHub上有提示 复制即可</span><br><span class="line">错误信息：fatal: remote origin already exists.</span><br><span class="line">&gt; 解决办法如下：</span><br><span class="line">&gt; 1、先输入 git remote rm origin</span><br><span class="line">&gt; 2、再输入 git remote add origin git@github.com:djqiang/gitdemo.git 就不会报错了！</span><br></pre></td></tr></table></figure></li>
+</ul>
+
       
     </div>
     
@@ -384,8 +403,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -427,6 +455,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git的相关操作"><span class="nav-number">1.</span> <span class="nav-text">Git的相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#拉取项目"><span class="nav-number">1.0.1.</span> <span class="nav-text">拉取项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本回退"><span class="nav-number">1.0.2.</span> <span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git怎样删除未监视的文件untracked-files"><span class="nav-number">1.0.3.</span> <span class="nav-text">git怎样删除未监视的文件untracked files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在GitHub新建项目后，根据GitHub提示选择将已经存在的项目推到远端"><span class="nav-number">1.0.4.</span> <span class="nav-text">在GitHub新建项目后，根据GitHub提示选择将已经存在的项目推到远端</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

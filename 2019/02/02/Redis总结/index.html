@@ -79,14 +79,17 @@
 
 
 
+<meta name="description" content="Redisredis中文教程 Redis的优势  与其他key-value缓存产品优势 Redis支持数据的持久化，可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用。 Redis不仅仅支持key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。 Redis支持数据的备份，即master-slave模式的数据备份。 Redis还支持 publish">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis总结">
 <meta property="og:url" content="http://yoursite.com/2019/02/02/Redis总结/index.html">
 <meta property="og:site_name" content="能吃八碗饭">
+<meta property="og:description" content="Redisredis中文教程 Redis的优势  与其他key-value缓存产品优势 Redis支持数据的持久化，可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用。 Redis不仅仅支持key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。 Redis支持数据的备份，即master-slave模式的数据备份。 Redis还支持 publish">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-02T09:36:33.758Z">
+<meta property="og:updated_time" content="2019-02-02T15:01:09.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis总结">
+<meta name="twitter:description" content="Redisredis中文教程 Redis的优势  与其他key-value缓存产品优势 Redis支持数据的持久化，可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用。 Redis不仅仅支持key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。 Redis支持数据的备份，即master-slave模式的数据备份。 Redis还支持 publish">
 
 
 
@@ -296,7 +299,34 @@
       
 
       
-        
+        <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><p><a href="http://www.redis.net.cn/tutorial/3509.html" target="_blank" rel="noopener">redis中文教程</a></p>
+<h3 id="Redis的优势"><a href="#Redis的优势" class="headerlink" title="Redis的优势"></a>Redis的优势</h3><blockquote>
+<ul>
+<li>与其他key-value缓存产品优势</li>
+<li>Redis支持数据的持久化，可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用。</li>
+<li>Redis不仅仅支持key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。</li>
+<li>Redis支持数据的备份，即master-slave模式的数据备份。</li>
+<li>Redis还支持 publish/subscribe, 通知, key 过期等等特性。</li>
+</ul>
+</blockquote>
+<h3 id="Redis配置"><a href="#Redis配置" class="headerlink" title="Redis配置"></a>Redis配置</h3><blockquote>
+<p>Redis 的配置文件位于 Redis 安装目录下，文件名为 redis.conf</p>
+<p><a href="http://www.redis.net.cn/tutorial/3504.html" target="_blank" rel="noopener">具体配置内容</a></p>
+</blockquote>
+<h3 id="Redis后台运行"><a href="#Redis后台运行" class="headerlink" title="Redis后台运行"></a>Redis后台运行</h3><p><strong>后台启动服务端</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup redis-server &amp;</span><br></pre></td></tr></table></figure>
+<p><strong>注</strong>：redis-server默认启动端口是6379，没有密码</p>
+<p>如果不使用默认配置文件，启动时可以加上配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup redis-server  ~/soft/redis-2.8.17/redis.conf &amp;</span><br></pre></td></tr></table></figure>
+<h3 id="Redis-存字符串返回的却是byte"><a href="#Redis-存字符串返回的却是byte" class="headerlink" title="Redis 存字符串返回的却是byte"></a>Redis 存字符串返回的却是byte</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">r = redis.StrictRedis(host=<span class="string">'127.0.0.1'</span>, port=<span class="number">6379</span>, password=<span class="string">'123456'</span>,</span><br><span class="line">                       db=<span class="number">1</span>, decode_responses=<span class="keyword">True</span>)</span><br><span class="line">使用这种连接形式就是字符串，但是字符串比字节形式要慢</span><br></pre></td></tr></table></figure>
+<h3 id=""><a href="#" class="headerlink" title=" "></a> </h3><h3 id="Redis数据类型"><a href="#Redis数据类型" class="headerlink" title="Redis数据类型"></a>Redis数据类型</h3><ul>
+<li><h4 id="redis命令之字符串（String）"><a href="#redis命令之字符串（String）" class="headerlink" title="redis命令之字符串（String）"></a>redis命令之字符串（String）</h4></li>
+<li><h4 id="redis命令之哈希（Hash）"><a href="#redis命令之哈希（Hash）" class="headerlink" title="redis命令之哈希（Hash）"></a>redis命令之哈希（Hash）</h4></li>
+<li><h4 id="redis命令之列表（List）"><a href="#redis命令之列表（List）" class="headerlink" title="redis命令之列表（List）"></a>redis命令之列表（List）</h4></li>
+<li><h4 id="redis命令之集合（Set）"><a href="#redis命令之集合（Set）" class="headerlink" title="redis命令之集合（Set）"></a>redis命令之集合（Set）</h4></li>
+<li><h4 id="redis命令之有序集合（Sorted-Set）"><a href="#redis命令之有序集合（Sorted-Set）" class="headerlink" title="redis命令之有序集合（Sorted Set）"></a>redis命令之有序集合（Sorted Set）</h4></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">subscribeAllStatus</span><span class="params">(self, traders=None, allTraders=False)</span>:</span></span><br><span class="line">    pairs = [pair <span class="keyword">for</span> pair <span class="keyword">in</span> config.settings[<span class="string">'pairs'</span>]]</span><br><span class="line">    log.info(<span class="string">'keeper %s subscribe %s balance...'</span> % (self.keeper.id, pairs))</span><br><span class="line">    <span class="comment"># trader订阅所有资产</span></span><br><span class="line">    lst = []</span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> pairs:</span><br><span class="line">        money, stock = s.split(<span class="string">"/"</span>)</span><br><span class="line">        lst.append(eval(money))</span><br><span class="line">        lst.append(eval(stock))</span><br><span class="line">    symbols = list(set(lst))  <span class="comment"># 去重</span></span><br><span class="line">    <span class="comment"># keeper订阅资产</span></span><br><span class="line">    self.keeper.subscribeBalance(symbols)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> symbol <span class="keyword">in</span> self.activeTrader:</span><br><span class="line">        <span class="keyword">for</span> seller <span class="keyword">in</span> self.getTraders(symbol, <span class="string">'Seller'</span>):</span><br><span class="line">            log.info(<span class="string">'trader %s subscribe %s status...'</span> % (seller.id, symbol))</span><br><span class="line">            seller.subscribeOrders(symbol)</span><br><span class="line">            log.info(<span class="string">'trader %s initiating %s open orders...'</span> % (seller.id, symbol))</span><br><span class="line">            <span class="comment"># traders订阅资产</span></span><br><span class="line">            seller.subscribeBalance([eval(i) <span class="keyword">for</span> i <span class="keyword">in</span> symbol.split(<span class="string">"/"</span>)])</span><br><span class="line">            log.info(<span class="string">'trader %s status done. '</span> % (seller.id))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> buyer <span class="keyword">in</span> self.getTraders(symbol, <span class="string">'Buyer'</span>):</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                log.info(<span class="string">'trader %s subscribe %s status...'</span> % (buyer.id, symbol))</span><br><span class="line">                buyer.subscribeOrders(symbol)</span><br><span class="line">                log.info(<span class="string">'trader %s initiating %s open orders...'</span> % (buyer.id, symbol))</span><br><span class="line">                <span class="comment"># traders订阅资产</span></span><br><span class="line">                buyer.subscribeBalance([eval(i) <span class="keyword">for</span> i <span class="keyword">in</span> symbol.split(<span class="string">"/"</span>)])</span><br><span class="line">                log.info(<span class="string">'trader %s status done. '</span> % (buyer.id))</span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                log.error(<span class="string">'trader %s subscribing %s status error %s'</span> % (buyer.id, symbol, e))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> selfer <span class="keyword">in</span> self.getTraders(symbol, <span class="string">'Selfer'</span>):</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                log.info(<span class="string">'trader %s subscribe %s status...'</span> % (selfer.id, symbol))</span><br><span class="line">                selfer.subscribeOrders(symbol)</span><br><span class="line">                log.info(<span class="string">'trader %s initiating %s open orders...'</span> % (selfer.id, symbol))</span><br><span class="line">                <span class="comment"># traders订阅资产</span></span><br><span class="line">                selfer.subscribeBalance([eval(i) <span class="keyword">for</span> i <span class="keyword">in</span> symbol.split(<span class="string">"/"</span>)])</span><br><span class="line">                log.info(<span class="string">'trader %s status done. '</span> % (selfer.id))</span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                log.error(<span class="string">'trader %s subscribing %s status error %s'</span> % (selfer.id, symbol, e))</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -384,8 +414,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -427,6 +466,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis"><span class="nav-number">1.</span> <span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis的优势"><span class="nav-number">1.0.1.</span> <span class="nav-text">Redis的优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis配置"><span class="nav-number">1.0.2.</span> <span class="nav-text">Redis配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis后台运行"><span class="nav-number">1.0.3.</span> <span class="nav-text">Redis后台运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-存字符串返回的却是byte"><span class="nav-number">1.0.4.</span> <span class="nav-text">Redis 存字符串返回的却是byte</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">1.0.5.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis数据类型"><span class="nav-number">1.0.6.</span> <span class="nav-text">Redis数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#redis命令之字符串（String）"><span class="nav-number">1.0.6.1.</span> <span class="nav-text">redis命令之字符串（String）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redis命令之哈希（Hash）"><span class="nav-number">1.0.6.2.</span> <span class="nav-text">redis命令之哈希（Hash）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redis命令之列表（List）"><span class="nav-number">1.0.6.3.</span> <span class="nav-text">redis命令之列表（List）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redis命令之集合（Set）"><span class="nav-number">1.0.6.4.</span> <span class="nav-text">redis命令之集合（Set）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redis命令之有序集合（Sorted-Set）"><span class="nav-number">1.0.6.5.</span> <span class="nav-text">redis命令之有序集合（Sorted Set）</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
