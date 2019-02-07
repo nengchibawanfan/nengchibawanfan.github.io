@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="能吃八碗饭">
 <meta property="og:description" content="Question在开发过程中，可能会遇到多个python版本同时部署的情况。  Mac OS自带的Python版本是2.x，自己开发需要Python3.6、3.7 此时需要在系统中安装多个版本的Python，但又不能影响系统自带的Python，每个项目需要的库也不一样，即需要实现Python的多版本共存。 pyenv主要用来管理Python的版本，比如一个项目需要Python2.x，一个项目需要P">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-02T15:04:07.564Z">
+<meta property="og:updated_time" content="2019-02-07T13:15:13.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python版本管理工具Pyenv">
 <meta name="twitter:description" content="Question在开发过程中，可能会遇到多个python版本同时部署的情况。  Mac OS自带的Python版本是2.x，自己开发需要Python3.6、3.7 此时需要在系统中安装多个版本的Python，但又不能影响系统自带的Python，每个项目需要的库也不一样，即需要实现Python的多版本共存。 pyenv主要用来管理Python的版本，比如一个项目需要Python2.x，一个项目需要P">
@@ -318,6 +318,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source .bash_profile</span><br></pre></td></tr></table></figure>
 <h4 id="自动安装"><a href="#自动安装" class="headerlink" title="自动安装"></a>自动安装</h4><p><code>pyenv</code>提供了自动安装的工具，执行命令安装即可。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h4 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h4><p>也可以采用手动安装的方式，将<code>pyenv</code>检出到你想安装的目录。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">git clone git://github.com/yyuu/pyenv.git .pyenv</span><br><span class="line">echo &apos;export PYENV_ROOT=&quot;$HOME/.pyenv&quot;&apos; &gt;&gt; ~/.bashrc</span><br><span class="line">echo &apos;export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;&apos; &gt;&gt; ~/.bashrc</span><br><span class="line">echo &apos;eval &quot;$(pyenv init -)&quot;&apos; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
 <p>添加环境变量。<code>PYENV_ROOT</code> 指向 <code>pyenv</code> 检出的根目录，并向 <code>$PATH</code> 添加 <code>$PYENV_ROOT/bin</code> 以提供访问 <code>pyenv</code>命令的路径。</p>

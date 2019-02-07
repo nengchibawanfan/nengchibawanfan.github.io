@@ -299,8 +299,7 @@
 
       
         
-          
-            <h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>在开发过程中，可能会遇到多个python版本同时部署的情况。</p>
+          <h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>在开发过程中，可能会遇到多个python版本同时部署的情况。</p>
 <ul>
 <li>Mac OS自带的Python版本是2.x，自己开发需要Python3.6、3.7</li>
 <li>此时需要在系统中安装多个版本的Python，但又不能影响系统自带的Python，每个项目需要的库也不一样，即需要实现Python的多版本共存。</li>
@@ -319,36 +318,13 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source .bash_profile</span><br></pre></td></tr></table></figure>
 <h4 id="自动安装"><a href="#自动安装" class="headerlink" title="自动安装"></a>自动安装</h4><p><code>pyenv</code>提供了自动安装的工具，执行命令安装即可。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash</span><br></pre></td></tr></table></figure>
-<h4 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h4><p>也可以采用手动安装的方式，将<code>pyenv</code>检出到你想安装的目录。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">git clone git://github.com/yyuu/pyenv.git .pyenv</span><br><span class="line">echo &apos;export PYENV_ROOT=&quot;$HOME/.pyenv&quot;&apos; &gt;&gt; ~/.bashrc</span><br><span class="line">echo &apos;export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;&apos; &gt;&gt; ~/.bashrc</span><br><span class="line">echo &apos;eval &quot;$(pyenv init -)&quot;&apos; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-<p>添加环境变量。<code>PYENV_ROOT</code> 指向 <code>pyenv</code> 检出的根目录，并向 <code>$PATH</code> 添加 <code>$PYENV_ROOT/bin</code> 以提供访问 <code>pyenv</code>命令的路径。</p>
-<p>这里的 shell 配置文件<code>（~/.bash_profile）</code>依不同 Linux 而需作修改，如果使用 Zsh 则需要相应的配置 ~/.zshrc</p>
-<p>在使用 <code>pyenv</code> 之后使用 <code>pip</code> 安装的第三方模块会自动安装到当前使用 python 版本下，不会和系统模块产生冲突。使用 pip 安装模块之后，如果没有生效，记得使用 <code>pyenv rehash</code> 来更新垫片路径。</p>
-<h3 id="pyenv常用命令"><a href="#pyenv常用命令" class="headerlink" title="pyenv常用命令"></a>pyenv常用命令</h3><p>使用<code>pyenv commands</code>可以查看所有pyenv命令。</p>
-<h4 id="查看已安装Python版本"><a href="#查看已安装Python版本" class="headerlink" title="查看已安装Python版本"></a>查看已安装Python版本</h4><ul>
-<li><code>pyenv versions</code></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ferdinand@ferdinanddeMacBook-Pro  ~  pyenv versions</span><br><span class="line">  system</span><br><span class="line">* 3.6.3 (set by /Users/ferdinand/.python-version)</span><br></pre></td></tr></table></figure>
-<p>带*号的是当前路径下所使用的Python版本。</p>
-<h4 id="查看可安装的Python版本"><a href="#查看可安装的Python版本" class="headerlink" title="查看可安装的Python版本"></a>查看可安装的Python版本</h4><ul>
-<li><code>pyenv install -l</code></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">erdinand@ferdinanddeMacBook-Pro  ~  pyenv install -l</span><br><span class="line">Available versions:</span><br><span class="line">  2.1.3</span><br><span class="line">  2.2.3</span><br><span class="line">  2.3.7</span><br><span class="line">  2.4</span><br><span class="line">  2.4.1</span><br><span class="line">  2.4.2</span><br><span class="line">  2.4.3</span><br><span class="line">  2.4.4</span><br><span class="line">  2.4.5</span><br><span class="line">  2.4.6</span><br><span class="line">  2.5</span><br><span class="line">  2.5.1</span><br><span class="line">  2.5.2</span><br><span class="line">  2.5.3</span><br><span class="line">  2.5.4</span><br><span class="line">  2.5.5</span><br><span class="line">  2.5.6</span><br><span class="line">  2.6.6</span><br><span class="line">  2.6.7</span><br><span class="line">  2.6.8</span><br><span class="line">  2.6.9</span><br><span class="line">  2.7-dev</span><br><span class="line">  2.7</span><br><span class="line">  2.7.1</span><br><span class="line">  2.7.2</span><br><span class="line">  2.7.3</span><br><span class="line">  …………</span><br></pre></td></tr></table></figure>
-<h4 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyenv install &lt;version&gt; # version为版本号</span><br></pre></td></tr></table></figure>
-<h4 id="Python版本管理"><a href="#Python版本管理" class="headerlink" title="Python版本管理"></a>Python版本管理</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pyenv global &lt;version&gt;  # 全局设置python版本为指定版本，设置全局的 Python 版本，通过将版本号写入 ~/.pyenv/version 文件的方式。</span><br><span class="line">pyenv local &lt;version&gt;   # 设置当前路径下python版本为指定版本，设置 Python 本地版本，通过将版本号写入当前目录下的 .python-version 文件的方式。通过这种方式设置的 Python 版本优先级较 global 高。</span><br><span class="line">pyenv shell &lt;version&gt;   # 设置当前shell窗口使用的python版本为指定版本，设置面向 shell 的 Python 版本，通过设置当前 shell 的 PYENV_VERSION 环境变量的方式。这个版本的优先级比 local 和 global 都要高。–unset 参数可以用于取消当前 shell 设定的版本。</span><br></pre></td></tr></table></figure>
-<p>使用pyenv切换Python 版本之后可以通过<code>which python</code>或者是<code>python --version</code>来查看是否生效。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ferdinand@ferdinanddeMacBook-Pro  ~  which python</span><br><span class="line">/Users/ferdinand/.pyenv/shims/python</span><br><span class="line">ferdinand@ferdinanddeMacBook-Pro  ~  python --version</span><br><span class="line">Python 3.6.3</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Python版本的优先级</li>
-</ul>
-<blockquote>
-<p>shell &gt; local &gt; global</p>
-<p>pyenv会从当前目录开始向上逐级查找<code>.python-versiob</code>文件，直到根目录为止，若找不到，则使用global版本。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyenv rehash  # 创建垫片路径（为所有已安装的可执行文件创建 shims，如：~/.pyenv/versions/*/bin/*，因此，每当你增删了 Python 版本或带有可执行文件的包（如 pip）以后，都应该执行一次本命令）</span><br></pre></td></tr></table></figure>
-<h4 id="Python卸载"><a href="#Python卸载" class="headerlink" title="Python卸载"></a>Python卸载</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pyenv isntall &lt;version&gt; # 安装版本号为&lt;version&gt;的Python</span><br><span class="line">pyenv uninstall &lt;version&gt; #卸载版本号为&lt;version&gt;的Python</span><br></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/02/Python版本管理工具Pyenv/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -465,39 +441,24 @@
 
       
         
-          
-            <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><p><a href="http://www.redis.net.cn/tutorial/3509.html" target="_blank" rel="noopener">redis中文教程</a></p>
+          <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><p><a href="http://www.redis.net.cn/tutorial/3509.html" target="_blank" rel="noopener">redis中文教程</a></p>
 <h3 id="Redis的优势"><a href="#Redis的优势" class="headerlink" title="Redis的优势"></a>Redis的优势</h3><blockquote>
 <ul>
 <li>与其他key-value缓存产品优势</li>
 <li>Redis支持数据的持久化，可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用。</li>
 <li>Redis不仅仅支持key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。</li>
 <li>Redis支持数据的备份，即master-slave模式的数据备份。</li>
-<li>Redis还支持 publish/subscribe, 通知, key 过期等等特性。</li>
-</ul>
-</blockquote>
-<h3 id="Redis配置"><a href="#Redis配置" class="headerlink" title="Redis配置"></a>Redis配置</h3><blockquote>
-<p>Redis 的配置文件位于 Redis 安装目录下，文件名为 redis.conf</p>
-<p><a href="http://www.redis.net.cn/tutorial/3504.html" target="_blank" rel="noopener">具体配置内容</a></p>
-</blockquote>
-<h3 id="Redis后台运行"><a href="#Redis后台运行" class="headerlink" title="Redis后台运行"></a>Redis后台运行</h3><p><strong>后台启动服务端</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup redis-server &amp;</span><br></pre></td></tr></table></figure>
-<p><strong>注</strong>：redis-server默认启动端口是6379，没有密码</p>
-<p>如果不使用默认配置文件，启动时可以加上配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup redis-server  ~/soft/redis-2.8.17/redis.conf &amp;</span><br></pre></td></tr></table></figure>
-<h3 id="Redis-存字符串返回的却是byte"><a href="#Redis-存字符串返回的却是byte" class="headerlink" title="Redis 存字符串返回的却是byte"></a>Redis 存字符串返回的却是byte</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">r = redis.StrictRedis(host=<span class="string">'127.0.0.1'</span>, port=<span class="number">6379</span>, password=<span class="string">'123456'</span>,</span><br><span class="line">                       db=<span class="number">1</span>, decode_responses=<span class="keyword">True</span>)</span><br><span class="line">使用这种连接形式就是字符串，但是字符串比字节形式要慢</span><br></pre></td></tr></table></figure>
-<h3 id=""><a href="#" class="headerlink" title=" "></a> </h3><h3 id="Redis数据类型"><a href="#Redis数据类型" class="headerlink" title="Redis数据类型"></a>Redis数据类型</h3><ul>
-<li><h4 id="redis命令之字符串（String）"><a href="#redis命令之字符串（String）" class="headerlink" title="redis命令之字符串（String）"></a>redis命令之字符串（String）</h4></li>
-<li><h4 id="redis命令之哈希（Hash）"><a href="#redis命令之哈希（Hash）" class="headerlink" title="redis命令之哈希（Hash）"></a>redis命令之哈希（Hash）</h4></li>
-<li><h4 id="redis命令之列表（List）"><a href="#redis命令之列表（List）" class="headerlink" title="redis命令之列表（List）"></a>redis命令之列表（List）</h4></li>
-<li><h4 id="redis命令之集合（Set）"><a href="#redis命令之集合（Set）" class="headerlink" title="redis命令之集合（Set）"></a>redis命令之集合（Set）</h4></li>
-<li><h4 id="redis命令之有序集合（Sorted-Set）"><a href="#redis命令之有序集合（Sorted-Set）" class="headerlink" title="redis命令之有序集合（Sorted Set）"></a>redis命令之有序集合（Sorted Set）</h4></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">subscribeAllStatus</span><span class="params">(self, traders=None, allTraders=False)</span>:</span></span><br><span class="line">    pairs = [pair <span class="keyword">for</span> pair <span class="keyword">in</span> config.settings[<span class="string">'pairs'</span>]]</span><br><span class="line">    log.info(<span class="string">'keeper %s subscribe %s balance...'</span> % (self.keeper.id, pairs))</span><br><span class="line">    <span class="comment"># trader订阅所有资产</span></span><br><span class="line">    lst = []</span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> pairs:</span><br><span class="line">        money, stock = s.split(<span class="string">"/"</span>)</span><br><span class="line">        lst.append(eval(money))</span><br><span class="line">        lst.append(eval(stock))</span><br><span class="line">    symbols = list(set(lst))  <span class="comment"># 去重</span></span><br><span class="line">    <span class="comment"># keeper订阅资产</span></span><br><span class="line">    self.keeper.subscribeBalance(symbols)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> symbol <span class="keyword">in</span> self.activeTrader:</span><br><span class="line">        <span class="keyword">for</span> seller <span class="keyword">in</span> self.getTraders(symbol, <span class="string">'Seller'</span>):</span><br><span class="line">            log.info(<span class="string">'trader %s subscribe %s status...'</span> % (seller.id, symbol))</span><br><span class="line">            seller.subscribeOrders(symbol)</span><br><span class="line">            log.info(<span class="string">'trader %s initiating %s open orders...'</span> % (seller.id, symbol))</span><br><span class="line">            <span class="comment"># traders订阅资产</span></span><br><span class="line">            seller.subscribeBalance([eval(i) <span class="keyword">for</span> i <span class="keyword">in</span> symbol.split(<span class="string">"/"</span>)])</span><br><span class="line">            log.info(<span class="string">'trader %s status done. '</span> % (seller.id))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> buyer <span class="keyword">in</span> self.getTraders(symbol, <span class="string">'Buyer'</span>):</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                log.info(<span class="string">'trader %s subscribe %s status...'</span> % (buyer.id, symbol))</span><br><span class="line">                buyer.subscribeOrders(symbol)</span><br><span class="line">                log.info(<span class="string">'trader %s initiating %s open orders...'</span> % (buyer.id, symbol))</span><br><span class="line">                <span class="comment"># traders订阅资产</span></span><br><span class="line">                buyer.subscribeBalance([eval(i) <span class="keyword">for</span> i <span class="keyword">in</span> symbol.split(<span class="string">"/"</span>)])</span><br><span class="line">                log.info(<span class="string">'trader %s status done. '</span> % (buyer.id))</span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                log.error(<span class="string">'trader %s subscribing %s status error %s'</span> % (buyer.id, symbol, e))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> selfer <span class="keyword">in</span> self.getTraders(symbol, <span class="string">'Selfer'</span>):</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                log.info(<span class="string">'trader %s subscribe %s status...'</span> % (selfer.id, symbol))</span><br><span class="line">                selfer.subscribeOrders(symbol)</span><br><span class="line">                log.info(<span class="string">'trader %s initiating %s open orders...'</span> % (selfer.id, symbol))</span><br><span class="line">                <span class="comment"># traders订阅资产</span></span><br><span class="line">                selfer.subscribeBalance([eval(i) <span class="keyword">for</span> i <span class="keyword">in</span> symbol.split(<span class="string">"/"</span>)])</span><br><span class="line">                log.info(<span class="string">'trader %s status done. '</span> % (selfer.id))</span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                log.error(<span class="string">'trader %s subscribing %s status error %s'</span> % (selfer.id, symbol, e))</span><br></pre></td></tr></table></figure>
-          
+<li>Redis还支持 publish/subscribe, 通知, key 过期等等特性。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/02/Redis总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </li></ul></blockquote></div>
     
     
     
@@ -611,24 +572,18 @@
 
       
         
-          
-            <h1 id="Python基础操作"><a href="#Python基础操作" class="headerlink" title="Python基础操作"></a>Python基础操作</h1><ul>
+          <h1 id="Python基础操作"><a href="#Python基础操作" class="headerlink" title="Python基础操作"></a>Python基础操作</h1><ul>
 <li><p>比较两个字典是否相同</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">operator.rq(dict1, dict2)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>将列表转为字典</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dict(zip(list1,list2))</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编码问题</p>
-<ul>
-<li><p>乱码 b’\x1f\x8b\x08\x00\x00\x00\x00\x00...’</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gzip</span><br><span class="line">ret = gzip.decompress(res).decode(<span class="string">"utf-8"</span>)</span><br></pre></td></tr></table></figure>
-</li>
 </ul>
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/02/Python的一些基本操作/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -865,25 +820,17 @@
 
       
         
-          
-            <h1 id="Git的相关操作"><a href="#Git的相关操作" class="headerlink" title="Git的相关操作"></a>Git的相关操作</h1><ul>
+          <h1 id="Git的相关操作"><a href="#Git的相关操作" class="headerlink" title="Git的相关操作"></a>Git的相关操作</h1><ul>
 <li><h3 id="拉取项目"><a href="#拉取项目" class="headerlink" title="拉取项目"></a>拉取项目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone git@git.n.xxx.com:xxx/xxx.git</span><br><span class="line">git fetch origin dev    命令来把远程dev分支拉到本地</span><br><span class="line">git checkout -b dev origin/dev   在本地创建分支dev并切换到该分支</span><br><span class="line">git pull origin dev 就可以把远程dev分支上的内容都拉取到本地了</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ul>
-<li><h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><ul>
-<li>强行覆盖</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用远程服务器的版本覆盖</span><br><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/dev</span><br><span class="line"></span><br><span class="line">指定版本进行覆盖</span><br><span class="line">git reset --hard 版本号</span><br></pre></td></tr></table></figure>
-</li>
-<li><h3 id="git怎样删除未监视的文件untracked-files"><a href="#git怎样删除未监视的文件untracked-files" class="headerlink" title="git怎样删除未监视的文件untracked files"></a>git怎样删除未监视的文件untracked files</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">用 git clean</span><br><span class="line"># 删除 untracked files</span><br><span class="line">git clean -f</span><br><span class="line"># 连 untracked 的目录也一起删掉</span><br><span class="line">git clean -fd</span><br><span class="line"># 连 gitignore 的untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）</span><br><span class="line">git clean -xfd</span><br><span class="line"># 在用上述 git clean 前，墙裂建议加上 -n 参数来先看看会删掉哪些文件，防止重要文件被误删</span><br><span class="line">git clean -nxfd</span><br><span class="line">git clean -nf</span><br><span class="line">git clean -nfd</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><h3 id="在GitHub新建项目后，根据GitHub提示选择将已经存在的项目推到远端"><a href="#在GitHub新建项目后，根据GitHub提示选择将已经存在的项目推到远端" class="headerlink" title="在GitHub新建项目后，根据GitHub提示选择将已经存在的项目推到远端"></a>在GitHub新建项目后，根据GitHub提示选择将已经存在的项目推到远端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:********（github帐号名）/*******（项目名）.git </span><br><span class="line">在GitHub上有提示 复制即可</span><br><span class="line">错误信息：fatal: remote origin already exists.</span><br><span class="line">&gt; 解决办法如下：</span><br><span class="line">&gt; 1、先输入 git remote rm origin</span><br><span class="line">&gt; 2、再输入 git remote add origin git@github.com:djqiang/gitdemo.git 就不会报错了！</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/02/Git的相关操作/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1000,10 +947,14 @@
 
       
         
-          
-            <h1 id="薅亚马逊羊毛搭建十块一年的翻墙服务器"><a href="#薅亚马逊羊毛搭建十块一年的翻墙服务器" class="headerlink" title="薅亚马逊羊毛搭建十块一年的翻墙服务器"></a>薅亚马逊羊毛搭建十块一年的翻墙服务器</h1><p>为了开阔视野、学习新技术，翻墙去见见大（某）千（某）世（hu）界（b）是很有必要的啊<br>虽然 翻墙软件不断被封，但是我们学习的热情是必不能减的啊！本文就教大家搭建自己的翻墙服务器</p>
-
-          
+          <h1 id="薅亚马逊羊毛搭建十块一年的翻墙服务器"><a href="#薅亚马逊羊毛搭建十块一年的翻墙服务器" class="headerlink" title="薅亚马逊羊毛搭建十块一年的翻墙服务器"></a>薅亚马逊羊毛搭建十块一年的翻墙服务器</h1><p>亚马逊搭建翻墙服务器一年只需十块钱！只要十块钱！十块钱，你买不了吃亏！十块钱，你买不了上当！如果没撸过，那么各位看官里面请！！！<br>为了开阔视野、学习新技术，翻墙去见见大（某）千（某）世（hu）界（b）是很有必要的啊<br>虽然 翻墙软件不断被封，但是我们学习的热情是必不能减的啊！本文就教大家搭建自己的翻墙服务器<br>免费云服务也是有限制的，每月750小时，每月100w次请求，15G 好像是这么个限制</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/02/搭建自己的翻墙服务器/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
