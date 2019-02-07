@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="能吃八碗饭">
 <meta property="og:description" content="Question在开发过程中，可能会遇到多个python版本同时部署的情况。  Mac OS自带的Python版本是2.x，自己开发需要Python3.6、3.7 此时需要在系统中安装多个版本的Python，但又不能影响系统自带的Python，每个项目需要的库也不一样，即需要实现Python的多版本共存。 pyenv主要用来管理Python的版本，比如一个项目需要Python2.x，一个项目需要P">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-07T13:15:13.487Z">
+<meta property="og:updated_time" content="2019-02-07T14:21:30.961Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python版本管理工具Pyenv">
 <meta name="twitter:description" content="Question在开发过程中，可能会遇到多个python版本同时部署的情况。  Mac OS自带的Python版本是2.x，自己开发需要Python3.6、3.7 此时需要在系统中安装多个版本的Python，但又不能影响系统自带的Python，每个项目需要的库也不一样，即需要实现Python的多版本共存。 pyenv主要用来管理Python的版本，比如一个项目需要Python2.x，一个项目需要P">
@@ -305,6 +305,7 @@
 <li>此时需要在系统中安装多个版本的Python，但又不能影响系统自带的Python，每个项目需要的库也不一样，即需要实现Python的多版本共存。</li>
 <li><code>pyenv</code>主要用来管理Python的版本，比如一个项目需要Python2.x，一个项目需要Python3.x。而virtualenv主要用来管理Python包的依赖。不同项目需要依赖的包版本不同，则需要使用虚拟环境。</li>
 </ul>
+<a id="more"></a>
 <h2 id="Pyenv"><a href="#Pyenv" class="headerlink" title="Pyenv"></a>Pyenv</h2><p><code>pyenv</code>是Python版本管理工具，安装多个版本的Python。<code>pyenv</code>可以改变全局的Python版本，安装多个版本的Python，设置目录级别的Python版本，还能创建和管理vitual python enviroments。所有的设置都是用户级别的操作，不需要<code>sudo</code>命令。</p>
 <p><code>pyenv</code>通过系统修改环境变量来实现Python不同版本的切换。而vitualenv通过Python包安装到一个目录来作为Python虚拟包环境，通过切换目录来实现不同包环境间的切换。</p>
 <p><code>pyenv</code>的美好之处在于，它并没有使用将不同的 PATH植入不同的shell这种高耦合的工作方式，而是简单地在PATH植入不同的shell这种高耦合的工作方式，而是简单地在PATH 的最前面插入了一个垫片路径（shims）：~/.pyenv/shims:/usr/local/bin:/usr/bin:/bin。所有对 Python 可执行文件的查找都会首先被这个 shims 路径截获，从而使后方的系统路径失效。</p>
@@ -318,7 +319,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source .bash_profile</span><br></pre></td></tr></table></figure>
 <h4 id="自动安装"><a href="#自动安装" class="headerlink" title="自动安装"></a>自动安装</h4><p><code>pyenv</code>提供了自动安装的工具，执行命令安装即可。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
 <h4 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h4><p>也可以采用手动安装的方式，将<code>pyenv</code>检出到你想安装的目录。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">git clone git://github.com/yyuu/pyenv.git .pyenv</span><br><span class="line">echo &apos;export PYENV_ROOT=&quot;$HOME/.pyenv&quot;&apos; &gt;&gt; ~/.bashrc</span><br><span class="line">echo &apos;export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;&apos; &gt;&gt; ~/.bashrc</span><br><span class="line">echo &apos;eval &quot;$(pyenv init -)&quot;&apos; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
 <p>添加环境变量。<code>PYENV_ROOT</code> 指向 <code>pyenv</code> 检出的根目录，并向 <code>$PATH</code> 添加 <code>$PYENV_ROOT/bin</code> 以提供访问 <code>pyenv</code>命令的路径。</p>
