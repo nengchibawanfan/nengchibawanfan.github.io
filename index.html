@@ -229,6 +229,140 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/26/方糖使用/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Seven">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="能吃八碗饭">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/26/方糖使用/" itemprop="url">方糖使用.md</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-26T15:26:02+08:00">
+                2019-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<h3 id="方糖"><a href="#方糖" class="headerlink" title="方糖"></a>方糖</h3><p>首先说一下方糖是什么呢？</p>
+<p>方糖就是，一个微信报警的东西</p>
+<p>emmmm，说不明白啊hhhhhhh</p>
+<p>就是 你程序报警，可能一般都会发邮件，但是我们不会经常去看邮箱啦，再加上各种垃圾邮件，可能是报警也不会去注意</p>
+<p>但是，来了一条微信消息谁会忍住不打开看呢，除非跟女朋友在一起</p>
+<p>方糖就是 把报警信息通过微信发送给你的这么一个东西啦</p>
+<p>这是PushBear官网(<a href="https://link.jianshu.com/?t=https%3A%2F%2Fpushbear.ftqq.com%2Fadmin%2F%23%2F" target="_blank" rel="noopener">https://pushbear.ftqq.com/admin/#/</a>)</p>
+<p>那么怎么使用呢（哪里才能买到呢）</p>
+<ul>
+<li>进入官网，微信扫码</li>
+<li>新建通道，通道名称和email地址。 点击 创建。然后就有了密钥，就能通过这个通道发消息了</li>
+<li>然后需要订阅这个通道的 只需要微信扫了这个码就可以了</li>
+</ul>
+<p>这是一个 发送消息的函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">push_bear</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">import</span> requests</span><br><span class="line">    url = <span class="string">"https://pushbear.ftqq.com/sub"</span></span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">"sendkey"</span>: <span class="string">"11970-ba5f3d1********f3560f69"</span>,</span><br><span class="line">        <span class="string">"text"</span>: <span class="string">"PriceServer——GraphQL"</span>,</span><br><span class="line">        <span class="string">"desp"</span>: <span class="string">"报警的内容！"</span></span><br><span class="line">    &#125;</span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">"Accept"</span>: <span class="string">"application/json, text/javascript, */*; q=0.01"</span>,</span><br><span class="line">        <span class="string">"Accept-Encoding"</span>: <span class="string">"gzip, deflate, br"</span>,</span><br><span class="line">        <span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0"</span>&#125;</span><br><span class="line">    requests.post(url, data=data, headers=headers)</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/18/Pandas操作/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1349,134 +1483,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/01/setUpBlog/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Seven">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="能吃八碗饭">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/01/setUpBlog/" itemprop="url">傻瓜式搭建个人博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-01T17:36:25+08:00">
-                2018-02-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="傻瓜式搭建个人博客"><a href="#傻瓜式搭建个人博客" class="headerlink" title="傻瓜式搭建个人博客"></a>傻瓜式搭建个人博客</h1><p>因为上传到简书的部分言（造）论（福）反（网）动（友）的文章被封了，所以决定自己搭建一个个人博客，你还来封我呀嘻嘻。话不多说、车门焊死、准备发车！</p>
-<p>哦对，先上几个图激励一下自己才行，搭建好了以后是这样的，这是几个主题可以看一下</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/02/01/setUpBlog/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1520,7 +1533,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
